@@ -13,6 +13,12 @@ public class EmailNotification implements EventListener{
         System.out.println(foodType + " has been " + eventType + " to our store! Come and check " + email);
     }
 
+    @Override
+    public boolean equals(Object obj) {
+        EmailNotification currentMobile = (EmailNotification) obj;
+        return this.email.equals(currentMobile.email);
+    }
+
     private void runTime(){
         try{
             Thread.sleep(1000);

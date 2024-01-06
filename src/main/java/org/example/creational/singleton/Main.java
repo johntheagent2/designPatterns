@@ -16,7 +16,7 @@ public class Main {
         }
 
         try {
-            Thread.sleep(5); // Allow threads to complete
+            Thread.sleep(1000); // Allow threads to complete
         } catch (InterruptedException e) {
             e.printStackTrace();
         }

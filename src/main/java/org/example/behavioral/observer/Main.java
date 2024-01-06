@@ -7,15 +7,16 @@ import org.example.behavioral.observer.productNotifier.Notifier;
 public class Main {
     public static void main(String[] args){
         Notifier notifier = new Notifier();
+        Runnable printListOfFoods = Notifier::printListOfFoods;
+
         notifier.getEvent().subscribe("added", new EmailNotification("caophat113@gmail.com"));
-        notifier.getEvent().subscribe("added", new EmailNotification("caophat440@gmail.com"));
-        notifier.getEvent().subscribe("added", new MobileNotification("0707854816"));
-
-        notifier.getEvent().subscribe("removed", new MobileNotification("0707854816"));
-
         notifier.add("A5 Beef");
+        notifier.add("Salmon");
+
+        notifier.getEvent().unsubscribe("added", new EmailNotification("caophat113@gmail.com"));
         notifier.add("Clean Eggs");
-        notifier.remove("A5 Beef");
+
+        printListOfFoods.run();
 
     }
 }

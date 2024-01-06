@@ -10,7 +10,7 @@ import java.util.Map;
 public class Publishers {
     Map<String, List<EventListener>> listeners = new HashMap<>();
 
-    public Publishers(String[] operations) {
+    public Publishers(String... operations) {
         for (String operation : operations) {
             this.listeners.put(operation, new ArrayList<>());
         }
@@ -23,7 +23,8 @@ public class Publishers {
 
     public void unsubscribe(String eventType, EventListener listener) {
         List<EventListener> users = listeners.get(eventType);
-        users.remove(listener);
+
+        users.removeIf(user -> user.equals(listener));
     }
 
     public void notify(String eventType, String foodType) {

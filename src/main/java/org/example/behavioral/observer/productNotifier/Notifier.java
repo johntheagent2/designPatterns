@@ -17,6 +17,10 @@ public class Notifier {
         return this.events;
     }
 
+    public static void printListOfFoods(){
+        foodList.forEach(System.out::println);
+    }
+
     public void add(String foodName) {
         foodList.add(foodName);
         events.notify("added", foodName);
